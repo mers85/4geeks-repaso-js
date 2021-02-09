@@ -14,9 +14,9 @@ window.onload = function() {
   let result = classifyPersonsByAge(persons);
 
   let columnListHTML = document.querySelector("#renderLists");
-  let allpersons = result[0];
-  let olderPersons = result[1];
-  let youngPersons = result[2];
+  let allpersons = result.persons;
+  let olderPersons = result.olderPersons;
+  let youngPersons = result.youngPersons;
 
   columnListHTML.appendChild(createListHTML(allpersons, "Personas"));
   columnListHTML.appendChild(
@@ -59,9 +59,9 @@ form.addEventListener("submit", function(event) {
   let result = classifyPersonsByAge(persons);
 
   let columnListHTML = document.querySelector("#renderLists");
-  let allpersons = result[0];
-  let olderPersons = result[1];
-  let youngPersons = result[2];
+  let allpersons = result.persons;
+  let olderPersons = result.olderPersons;
+  let youngPersons = result.youngPersons;
 
   while (columnListHTML.firstChild) {
     columnListHTML.removeChild(columnListHTML.lastChild);
@@ -138,7 +138,6 @@ function addDecendentsToperson(persons) {
 function classifyPersonsByAge(persons) {
   let olderPersons = [];
   let youngPersons = [];
-  let result = [];
 
   for (let i = 0; i < persons.length; i++) {
     let personAge = persons[i].age;
@@ -150,8 +149,11 @@ function classifyPersonsByAge(persons) {
     }
   }
 
-  result.push(persons, olderPersons, youngPersons);
-  return result;
+  return {
+    persons: persons,
+    olderPersons: olderPersons,
+    youngPersons: youngPersons
+  };
 }
 
 // ejercicio 06-07
