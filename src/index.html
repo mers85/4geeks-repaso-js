@@ -13,16 +13,122 @@
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <div class="container text-justify py-5">
+      <div class="row">
+        <div class="col">
+          <div
+            class="alert alert-warning alert-dismissible d-none fade show"
+            role="alert"
+            id="alertFormulario"
+          >
+            <strong>Por favor,</strong> rellene todos los campos
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form
+            class="form-inline py-2 needs-validation"
+            id="formAddPerson"
+            novalidate
+          >
+            <div class="form-group mx-sm-3 mb-2">
+              <input
+                type="text"
+                pattern="[a-zA-Z]+"
+                class="form-control"
+                id="inputName"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <input
+                type="text"
+                pattern="[a-zA-Z]+"
+                class="form-control"
+                id="inputSurname"
+                placeholder="Apellido"
+                required
+              />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <input
+                type="text"
+                pattern="^[0-9]*[1-9][0-9]*$"
+                maxlength="3"
+                class="form-control"
+                id="inputAge"
+                placeholder="Edad"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-info mx-1 mb-2">
+              Añade una persona
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" id="renderLists"></div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModalCenter"
+    >
+      Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalOptionRemovePerson"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              ¿Desea eliminar la siguiente persona?
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+            <button id="buttonDeletePerson" type="button" class="btn btn-info">
+              Eliminar persona
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>

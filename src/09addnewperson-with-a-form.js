@@ -178,34 +178,6 @@ function createListHTML(persons, titleList) {
       let children_html = children_id.join(", ");
       newLi.innerHTML += `, decendientes_id: ${children_html}`;
     }
-
-    let modalBody = document.querySelector(".modal-body");
-
-    newLi.addEventListener("click", function(event) {
-      newLi.setAttribute("data-toggle", "modal");
-      newLi.setAttribute("data-target", "#modalOptionRemovePerson");
-      let personToDelete = event.target.textContent;
-      modalBody.innerHTML = personToDelete;
-
-      let buttonDelete = document.querySelector("#buttonDeletePerson");
-      buttonDelete.addEventListener("click", function(event) {
-        modalBody.innerHTML = "Persona Eliminada: " + personToDelete + ".";
-
-        newLi.remove();
-
-        let myModal = document.getElementById("modalOptionRemovePerson");
-        let divbackgroundModal = document.querySelector(".modal-backdrop");
-        myModal.style.display = "none";
-        myModal.setAttribute("aria-hidden", "true");
-        myModal.removeAttribute("aria-modal");
-        myModal.classList.remove("show");
-        if (divbackgroundModal) {
-          divbackgroundModal.remove();
-        }
-        document.querySelector("body").classList.remove("modal-open");
-      });
-    });
-
     myNewlist.appendChild(newLi);
   }
   return myNewlist;
