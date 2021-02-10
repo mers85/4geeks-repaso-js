@@ -191,19 +191,7 @@ function createListHTML(persons, titleList) {
       let buttonDelete = document.querySelector("#buttonDeletePerson");
       buttonDelete.addEventListener("click", function(event) {
         modalBody.innerHTML = "Persona Eliminada: " + personToDelete + ".";
-
         newLi.remove();
-
-        let myModal = document.getElementById("modalOptionRemovePerson");
-        let divbackgroundModal = document.querySelector(".modal-backdrop");
-        myModal.style.display = "none";
-        myModal.setAttribute("aria-hidden", "true");
-        myModal.removeAttribute("aria-modal");
-        myModal.classList.remove("show");
-        if (divbackgroundModal) {
-          divbackgroundModal.remove();
-        }
-        document.querySelector("body").classList.remove("modal-open");
       });
     });
 
