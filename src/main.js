@@ -57,12 +57,11 @@ form.addEventListener("submit", function(event) {
 
   let persons = GetPersonsAndDecendents(names, surnames, ages);
   let result = classifyPersonsByAge(persons);
-
-  let columnListHTML = document.querySelector("#renderLists");
   let allpersons = result.persons;
   let olderPersons = result.olderPersons;
   let youngPersons = result.youngPersons;
 
+  let columnListHTML = document.querySelector("#renderLists");
   while (columnListHTML.firstChild) {
     columnListHTML.removeChild(columnListHTML.lastChild);
   }
